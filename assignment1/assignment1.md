@@ -20,7 +20,6 @@
 
 	Data: Instructor, Student, Assignment, Recording
 	Behaviors: 	
-	c++ `scanf()` is useful
 ## Sequence of invoking behaviors on objects:		
 ```
 Student emma;
