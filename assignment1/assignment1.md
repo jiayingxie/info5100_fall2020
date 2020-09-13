@@ -10,7 +10,7 @@
 *-Instructor*
 
 	Data: userName, passward
-	Behaviors: login, startOnlineClass, teach, answerQuestion, endOnlineClass, uploadRecording,  
+	Behaviors: login, startOnlineClass, teach, answerQuestion, endOnlineClass, uploadRecording, 
 				makeAssignment, sendEmailsToStudent, giveGrade
 *-Student*
 
