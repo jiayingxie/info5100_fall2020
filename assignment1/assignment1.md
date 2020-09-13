@@ -11,7 +11,7 @@
 
 	Data: userName, passward
 	Behaviors: login, startOnlineClass, teach, answerQuestion, endOnlineClass, uploadRecording, 
-				makeAssignment, sendEmailsToStudent, giveGrade
+		makeAssignment, sendEmailsToStudent, giveGrade
 *-Student*
 
 	Data: userName, passward, Grades
