@@ -41,8 +41,19 @@ class Employee {
         *  and the new salary is 3, then the parameter should be 2,
         *   rather than 3.
         * */
-        double raisedSalary = this.salary * (1 + byPercent);
-        System.out.println(raisedSalary);
+        this.salary = this.salary * (1 + byPercent);
+    }
+
+    @Override
+    public String toString() {
+        String pronoun = null;
+        if (gender == Gender.MALE) {
+            pronoun = "his";
+        } else if (gender == Gender.FEMALE) {
+            pronoun = "her";
+        }
+        return "Employee " + name + " is " + age + " years old, "
+                + pronoun + " salary is " + salary;
     }
 }
 
@@ -59,15 +70,15 @@ public class Assignment2_1 {
      * If the salary is less than or equal to 8900, the Social Security Tax is 6.2% of the salary.
      * If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
      */
-    public double socialSecurityTax(Employee employee) {
+    public static double socialSecurityTax(Employee employee) {
         //write your code here
         double tax = 0;
         if (employee.salary <= 8900) {
             // If the salary is less than or equal to 8900, the Social Security Tax is 6.2% of the salary.
-            tax = 6.2 / 100 * employee.salary;
+            tax = employee.salary * 0.062;
         } else {
             // If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
-            tax = 6.2 / 100 * 106800;
+            tax = 106800 * 0.062;
         }
         return tax;
     }
@@ -78,10 +89,23 @@ public class Assignment2_1 {
      * If the employee is under 35, rate is 3% of salary; if the employee is between 35 and 50(inclusive), rate is 4% of salary;
      * If the employee is between 50 and 60(exclusive), rate is 5% of salary; If the employee is above 60, rate is 6% of salary.
      */
-    // ???
-    public double insuranceCoverage(Employee employee) {
+    // if Jenny is 20 and her salary is 2000, the answer should be 2000*3%
+    // ??? print?
+    public static double insuranceCoverage(Employee employee) {
         //write your code here
-        return 0;
+        double ans = 0;
+        if (employee.age < 35) {
+            ans = employee.salary * 0.03;
+        } else if (employee.age <= 50) {
+            ans = employee.salary * 0.04;
+        } else if (employee.age <= 60) {
+            ans = employee.salary * 0.05;
+        } else {
+            ans = employee.salary * 0.06;
+        }
+//        // print it
+//        System.out.println("The contribution for insurance coverage is " + ans);
+        return ans;
     }
 
     /**
@@ -89,7 +113,7 @@ public class Assignment2_1 {
      * For example, Alice's salary is 1000, John's salary is 500, Jenny's salary is 1200, you should print:
      * John Alice Jenny
      */
-    public void sortSalary(Employee e1, Employee e2, Employee e3) {
+    public static void sortSalary(Employee e1, Employee e2, Employee e3) {
         //write your code here
         List<Employee> list = new ArrayList<>();
         list.add(e1);
@@ -104,6 +128,7 @@ public class Assignment2_1 {
         for (Employee e: list) {
             System.out.print(e.name + " ");
         }
+        System.out.println();
     }
 
     /**
@@ -112,10 +137,16 @@ public class Assignment2_1 {
      * Do not change the input of this method.
      * Try to add a new method in Employee class: public void raiseSalary(double byPercent)
      */
-    // ??? what does "Do not change the input of this method" means?
-    // does it means we should create a new Employee object to have the new salary?
-    public void tripleSalary(Employee employee) {
+    public static void tripleSalary(Employee employee) {
         //write your code here
+        /* the input should be Employee and should change salary to the
+            triple one by calling the method in Employee class.
+        * */
+        /* pay attention, my parameter is the raised percentage,
+         *  rather than the total number, if the original salary is 1,
+         *  and the new salary is 3, then the parameter should be 2,
+         *   rather than 3.
+         * */
         employee.raiseSalary(2);
     }
 
@@ -148,6 +179,7 @@ public class Assignment2_1 {
       ""Jenny", 20, Gender.FEMALE, 2000". "x = y;" and "y = temp;" only makes x and
       y point to each other's object, but will not influence a and b.
     */
+    // we should use the swap2 method to swap two Employee objects
     public static void swap2(Employee x, Employee y) {
         Employee temp = new Employee(x.name, x.age, x.gender, x.salary);
         x.name = y.name;
@@ -169,16 +201,35 @@ public class Assignment2_1 {
         System.out.println("After: a=" + a.getName());
         System.out.println("After: b=" + b.getName());
 
-//        // ??? test
-//        Employee c = new Employee("Alice", 40, Gender.FEMALE, 1300);
-//        sortSalary(a, b, c);
-//        tripleSalary(a);
-//        tripleSalary(b);
-//        System.out.println(a.salary);
-//        System.out.println(b.salary);
-//        swap2(a, b);
-//        System.out.println("After: a=" + a.getName());
-//        System.out.println("After: b=" + b.getName());
+        // some output
+        System.out.println("\nSome output to show the usage of method.");
+        // show socialSecurityTax
+        Employee c = new Employee("Alice", 50, Gender.FEMALE, 10000);
+        System.out.println("\nsocialSecurityTax method.");
+        System.out.println(a + " and the Social Security Tax is " + socialSecurityTax(a));
+        System.out.println(b + " and the Social Security Tax is " + socialSecurityTax(b));
+        System.out.println(c + " and the Social Security Tax is " + socialSecurityTax(c));
+
+        // insuranceCoverage
+        System.out.println("\ninsuranceCoverage method.");
+        System.out.println(a + " and the contribution for insurance coverage is " + insuranceCoverage(a));
+        System.out.println(b + " and the contribution for insurance coverage is " + insuranceCoverage(b));
+        System.out.println(c + " and the contribution for insurance coverage is " + insuranceCoverage(c));
+
+        // sortSalary
+        System.out.println("\nsortSalary method.");
+        sortSalary(a, b, c);
+
+        // tripleSalary
+        System.out.println("\ntripleSalary method.");
+//        System.out.println("Before calling the tripleSalary method");
+        System.out.println("After calling the tripleSalary method: ");
+        tripleSalary(a);
+        tripleSalary(b);
+        tripleSalary(c);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
     }
 
     public static void swap(Employee x, Employee y) {
