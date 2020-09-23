@@ -250,6 +250,52 @@ public class Assignment2_1 {
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
+
+        /*
+        * Console output
+Before: a=Jenny
+Before: b=John
+After: a=Jenny
+After: b=John
+
+Some output to show the usage of method.
+
+socialSecurityTax method.
+Employee Jenny is 20 years old, her salary is 2000.0
+the Social Security Tax is 124.0
+Employee John is 30 years old, his salary is 2500.0
+the Social Security Tax is 155.0
+Employee Alice is 50 years old, her salary is 10000.0
+the Social Security Tax is 6621.6
+
+insuranceCoverage method.
+Employee Jenny is 20 years old, her salary is 2000.0
+the contribution for insurance coverage is 60.0
+Employee John is 30 years old, his salary is 2500.0
+the contribution for insurance coverage is 75.0
+Employee Alice is 50 years old, her salary is 10000.0
+the contribution for insurance coverage is 400.0
+
+sortSalary method.
+The information of three employees:
+Employee Jenny is 20 years old, her salary is 2000.0
+Employee John is 30 years old, his salary is 2500.0
+Employee Alice is 50 years old, her salary is 10000.0
+The result of sortSalary method:
+Jenny John Alice
+
+tripleSalary method.
+Before calling the tripleSalary method:
+Employee Jenny is 20 years old, her salary is 2000.0
+Employee John is 30 years old, his salary is 2500.0
+Employee Alice is 50 years old, her salary is 10000.0
+After calling the tripleSalary method:
+Employee Jenny is 20 years old, her salary is 6000.0
+Employee John is 30 years old, his salary is 7500.0
+Employee Alice is 50 years old, her salary is 30000.0
+
+Process finished with exit code 0
+        * */
     }
 
     public static void swap(Employee x, Employee y) {
