@@ -39,7 +39,7 @@ class Employee {
         /* pay attention, my parameter is the raised percentage,
         *  rather than the total number, if the original salary is 1,
         *  and the new salary is 3, then the parameter should be 2,
-        *   rather than 3.
+        *  instead of 3.
         * */
         this.salary = this.salary * (1 + byPercent);
     }
@@ -70,7 +70,7 @@ public class Assignment2_1 {
      * If the salary is less than or equal to 8900, the Social Security Tax is 6.2% of the salary.
      * If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
      */
-    public static double socialSecurityTax(Employee employee) {
+    public double socialSecurityTax(Employee employee) {
         //write your code here
         double tax = 0;
         if (employee.salary <= 8900) {
@@ -80,6 +80,8 @@ public class Assignment2_1 {
             // If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
             tax = 106800 * 0.062;
         }
+        // print it
+        System.out.println("the Social Security Tax is " + tax);
         return tax;
     }
 
@@ -90,8 +92,7 @@ public class Assignment2_1 {
      * If the employee is between 50 and 60(exclusive), rate is 5% of salary; If the employee is above 60, rate is 6% of salary.
      */
     // if Jenny is 20 and her salary is 2000, the answer should be 2000*3%
-    // ??? print?
-    public static double insuranceCoverage(Employee employee) {
+    public double insuranceCoverage(Employee employee) {
         //write your code here
         double ans = 0;
         if (employee.age < 35) {
@@ -103,8 +104,8 @@ public class Assignment2_1 {
         } else {
             ans = employee.salary * 0.06;
         }
-//        // print it
-//        System.out.println("The contribution for insurance coverage is " + ans);
+        // print it
+        System.out.println("the contribution for insurance coverage is " + ans);
         return ans;
     }
 
@@ -113,7 +114,7 @@ public class Assignment2_1 {
      * For example, Alice's salary is 1000, John's salary is 500, Jenny's salary is 1200, you should print:
      * John Alice Jenny
      */
-    public static void sortSalary(Employee e1, Employee e2, Employee e3) {
+    public void sortSalary(Employee e1, Employee e2, Employee e3) {
         //write your code here
         List<Employee> list = new ArrayList<>();
         list.add(e1);
@@ -137,7 +138,7 @@ public class Assignment2_1 {
      * Do not change the input of this method.
      * Try to add a new method in Employee class: public void raiseSalary(double byPercent)
      */
-    public static void tripleSalary(Employee employee) {
+    public void tripleSalary(Employee employee) {
         //write your code here
         /* the input should be Employee and should change salary to the
             triple one by calling the method in Employee class.
@@ -163,6 +164,7 @@ public class Assignment2_1 {
      * Write your understanding of the reason and explain it.
      */
     /*
+      Answer:
       Because Employee is a reference type.
 
       In the main method, variable a is the reference which will point to
@@ -201,32 +203,50 @@ public class Assignment2_1 {
         System.out.println("After: a=" + a.getName());
         System.out.println("After: b=" + b.getName());
 
+        // my demo
+        Employee c = new Employee("Alice", 50, Gender.FEMALE, 10000);
+        Assignment2_1 obj = new Assignment2_1();
+
         // some output
         System.out.println("\nSome output to show the usage of method.");
+
         // show socialSecurityTax
-        Employee c = new Employee("Alice", 50, Gender.FEMALE, 10000);
         System.out.println("\nsocialSecurityTax method.");
-        System.out.println(a + " and the Social Security Tax is " + socialSecurityTax(a));
-        System.out.println(b + " and the Social Security Tax is " + socialSecurityTax(b));
-        System.out.println(c + " and the Social Security Tax is " + socialSecurityTax(c));
+        System.out.println(a);
+        double aSocialSecurityTax = obj.socialSecurityTax(a);
+        System.out.println(b);
+        double bSocialSecurityTax = obj.socialSecurityTax(b);
+        System.out.println(c);
+        double cSocialSecurityTax = obj.socialSecurityTax(c);
 
         // insuranceCoverage
         System.out.println("\ninsuranceCoverage method.");
-        System.out.println(a + " and the contribution for insurance coverage is " + insuranceCoverage(a));
-        System.out.println(b + " and the contribution for insurance coverage is " + insuranceCoverage(b));
-        System.out.println(c + " and the contribution for insurance coverage is " + insuranceCoverage(c));
+        System.out.println(a);
+        double aInsuranceCoverage = obj.insuranceCoverage(a);
+        System.out.println(b);
+        double bInsuranceCoverage = obj.insuranceCoverage(b);
+        System.out.println(c);
+        double cInsuranceCoverage = obj.insuranceCoverage(c);
 
         // sortSalary
         System.out.println("\nsortSalary method.");
-        sortSalary(a, b, c);
+        System.out.println("The information of three employees:");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println("The result of sortSalary method:");
+        obj.sortSalary(a, b, c);
 
         // tripleSalary
         System.out.println("\ntripleSalary method.");
-//        System.out.println("Before calling the tripleSalary method");
+        System.out.println("Before calling the tripleSalary method:");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
         System.out.println("After calling the tripleSalary method: ");
-        tripleSalary(a);
-        tripleSalary(b);
-        tripleSalary(c);
+        obj.tripleSalary(a);
+        obj.tripleSalary(b);
+        obj.tripleSalary(c);
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);

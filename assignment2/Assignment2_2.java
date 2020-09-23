@@ -20,8 +20,7 @@ public class Assignment2_2 {
      * Input: nums = [1]
      * Output: 1
      */
-    // ??? non static
-    public static int maxSubArray(int[] nums) {
+    public int maxSubArray(int[] nums) {
         //write your code here
         int maxSum = 0;
         int tempSum = 0;
@@ -37,7 +36,8 @@ public class Assignment2_2 {
         return maxSum;
     }
 
-    public static int[] changeInputToIntArray(String[] temp) {
+    public static int[] transferInputToIntArray(String input) {
+        String[] temp = input.split(",");
         int totalNumber = temp.length;
         int[] nums = new int[totalNumber];
         // nums = [1]
@@ -47,12 +47,17 @@ public class Assignment2_2 {
         } else {
             /* the first and the last is special, they looks like
              *  "nums = [-2" and "4]", so we should deal with them individually*/
-            // "nums = [-2"
+
+            // the first number, "nums = [-2"
             String[] first = temp[0].split("\\[");
+            // now, they are "nums = " and "-2"
             nums[0] = Integer.parseInt(first[1]);
-            // "4]"
+
+            // the last number, "4]"
             String[] last = temp[totalNumber - 1].split("\\]");
+            // now, it is "4"
             nums[totalNumber - 1] = Integer.parseInt(last[0]);
+
             // the rest number
             for (int i = 1; i < temp.length - 1; ++i) {
                 nums[i] = Integer.parseInt(temp[i]);
@@ -63,15 +68,18 @@ public class Assignment2_2 {
 
     public static void main(String[] args) {
         //write your code here
-        // ??? what is the input format, nums = [-2,1,-3,4,-1,2,1,-5,4] is hard to deal with
+        Assignment2_2 obj = new Assignment2_2();
         Scanner sc = new Scanner(System.in);
+        // read input, the input format is: nums = [-2,1,-3,4,-1,2,1,-5,4]
         String input = sc.nextLine();
         if (input.equals("nums = []")) {
-            System.out.println("You did not input number");
+            System.out.println("You did not input number, please try again");
         } else {
-            String[] temp = input.split(",");
-            int[] nums = changeInputToIntArray(temp);
-            System.out.println(maxSubArray(nums));
+            /* need to deal with input, because the input includes not
+               only numbers but also word and characters */
+            int[] nums = transferInputToIntArray(input);
+            // to get the contiguous subarray's largest sum
+            System.out.println(obj.maxSubArray(nums));
         }
     }
 }
