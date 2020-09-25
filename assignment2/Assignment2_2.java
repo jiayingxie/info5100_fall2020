@@ -69,7 +69,7 @@ public class Assignment2_2 {
     public static void main(String[] args) {
         //write your code here
     	System.out.println("Please enter your number, the format should"
-    			+ "be like this:nums = [-2,1,-3,4,-1,2,1,-5,4]");
+    			+ " like this:nums = [-2,1,-3,4,-1,2,1,-5,4]");
         Assignment2_2 obj = new Assignment2_2();
         Scanner sc = new Scanner(System.in);
         // read input, the input format is: nums = [-2,1,-3,4,-1,2,1,-5,4]

@@ -290,14 +290,14 @@ Employee Jenny is 20 years old, her salary is 2000.0
 Employee John is 30 years old, his salary is 2500.0
 Employee Alice is 50 years old, her salary is 10000.0
 The result of sortSalary method:
-Jenny John Alice
+Jenny John Alice 
 
 tripleSalary method.
 Before calling the tripleSalary method:
 Employee Jenny is 20 years old, her salary is 2000.0
 Employee John is 30 years old, his salary is 2500.0
 Employee Alice is 50 years old, her salary is 10000.0
-After calling the tripleSalary method:
+After calling the tripleSalary method: 
 Employee Jenny is 20 years old, her salary is 6000.0
 Employee John is 30 years old, his salary is 7500.0
 Employee Alice is 50 years old, her salary is 30000.0
