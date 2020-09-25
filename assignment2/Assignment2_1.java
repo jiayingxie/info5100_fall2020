@@ -41,7 +41,7 @@ class Employee {
         *  and the new salary is 3, then the parameter should be 2,
         *  instead of 3.
         * */
-        this.salary = this.salary * (1 + byPercent);
+        this.salary = this.salary * (1 + byPercent/100.0);
     }
 
     @Override
@@ -55,6 +55,14 @@ class Employee {
         return "Employee " + name + " is " + age + " years old, "
                 + pronoun + " salary is " + salary;
     }
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
 }
 
 enum Gender {
@@ -123,7 +131,7 @@ public class Assignment2_1 {
         list.sort(new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                return Double.compare(o1.salary, o2.salary);
+                return Double.compare(o1.getSalary(), o2.getSalary());
             }
         });
         for (Employee e: list) {
@@ -144,11 +152,11 @@ public class Assignment2_1 {
             triple one by calling the method in Employee class.
         * */
         /* pay attention, my parameter is the raised percentage,
-         *  rather than the total number, if the original salary is 1,
-         *  and the new salary is 3, then the parameter should be 2,
-         *   rather than 3.
+         *  rather than the total number, if the original salary is 2500,
+         *  and the new salary is 7500, then the parameter should be 200,
+         *   rather than 300.
          * */
-        employee.raiseSalary(2);
+        employee.raiseSalary(200);
     }
 
     //Extra credit
@@ -183,7 +191,7 @@ public class Assignment2_1 {
     */
     // we should use the swap2 method to swap two Employee objects
     public static void swap2(Employee x, Employee y) {
-        Employee temp = new Employee(x.name, x.age, x.gender, x.salary);
+    	Employee temp = new Employee(x.name, x.age, x.gender, x.salary);
         x.name = y.name;
         x.age = y.age;
         x.gender = y.gender;
@@ -195,8 +203,8 @@ public class Assignment2_1 {
     }
 
     public static void main(String[] args) {
-        Employee a = new Employee("Jenny", 20, Gender.FEMALE, 2000);
-        Employee b = new Employee("John", 30, Gender.MALE, 2500);
+    	Employee a = new Employee("Jenny", 20, Gender.FEMALE, 2000);
+    	Employee b = new Employee("John", 30, Gender.MALE, 2500);
         System.out.println("Before: a=" + a.getName());
         System.out.println("Before: b=" + b.getName());
         swap(a, b);
@@ -299,7 +307,7 @@ Process finished with exit code 0
     }
 
     public static void swap(Employee x, Employee y) {
-        Employee temp = x;
+    	Employee temp = x;
         x = y;
         y = temp;
     }
