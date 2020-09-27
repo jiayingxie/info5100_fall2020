@@ -21,19 +21,16 @@ public class Assignment2_2 {
      * Output: 1
      */
     public int maxSubArray(int[] nums) {
-        //write your code here
-        int maxSum = 0;
-        int tempSum = 0;
-        for (int i = 0; i < nums.length; ++i) {
-            tempSum += nums[i];
-            if (tempSum <= 0) {
-                tempSum = 0;
-            }
-            if (maxSum < tempSum) {
-                maxSum = tempSum;
+        int[] maxSubSum = new int[nums.length];
+        maxSubSum[0] = nums[0];
+        int ans = maxSubSum[0];
+        for (int i = 1; i < nums.length; ++i) {
+            maxSubSum[i] = nums[i] + (maxSubSum[i - 1] < 0 ? 0 : maxSubSum[i - 1]);
+            if (ans < maxSubSum[i]) {
+                ans = maxSubSum[i];
             }
         }
-        return maxSum;
+        return ans;
     }
 
     public static int[] transferInputToIntArray(String input) {
