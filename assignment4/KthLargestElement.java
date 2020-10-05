@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class KthLargestElement {
     public int kthLargestElement(int[] nums, int k) {
-        // ??? could we just use the Arrays.sort() ?
         Arrays.sort(nums);
         return nums[nums.length - k];
     }
