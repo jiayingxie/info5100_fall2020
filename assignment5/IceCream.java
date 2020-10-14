@@ -1,17 +1,6 @@
 public class IceCream extends DessertItem{
     private double cost;
 
-    public IceCream() {
-    }
-
-    public IceCream(String name) {
-        super(name);
-    }
-
-    public IceCream(double cost) {
-        this.cost = cost;
-    }
-
     public IceCream(String name, double cost) {
         super(name);
         this.cost = cost;

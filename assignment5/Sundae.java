@@ -11,7 +11,6 @@ public class Sundae extends IceCream{
 
     @Override
     public int getCost() {
-        // ??? super.getCost already cast to int, may affect the result
         return (int) (super.getCost() + toppingCost);
     }
 

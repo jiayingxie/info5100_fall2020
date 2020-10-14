@@ -3,18 +3,6 @@ public class Candy extends DessertItem{
     private double weight;
     private double pricePerPound;
 
-    public Candy() {
-    }
-
-    public Candy(String name) {
-        super(name);
-    }
-
-    public Candy(double weight, double pricePerPound) {
-        this.weight = weight;
-        this.pricePerPound = pricePerPound;
-    }
-
     public Candy(String name, double weight, double pricePerPound) {
         super(name);
         this.weight = weight;
