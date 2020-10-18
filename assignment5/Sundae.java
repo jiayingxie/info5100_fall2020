@@ -11,6 +11,7 @@ public class Sundae extends IceCream{
 
     @Override
     public int getCost() {
+        // ??? super.getCost already cast to int, may affect the result
         return (int) (super.getCost() + toppingCost);
     }
 
@@ -18,7 +19,7 @@ public class Sundae extends IceCream{
     public String toString() {
         StringBuilder sb = new StringBuilder(toppingName
                 + "Sundae with\n");
-        sb.append(String.format("%-25.25s %5.2f", super.name, DessertShoppe.cents2dollarsAndCents(getCost())));
+        sb.append(String.format("%-25.25s %6s", super.name, DessertShoppe.cents2dollarsAndCents(getCost())));
         return sb.toString();
     }
 }

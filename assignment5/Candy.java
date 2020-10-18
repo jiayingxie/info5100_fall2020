@@ -3,6 +3,18 @@ public class Candy extends DessertItem{
     private double weight;
     private double pricePerPound;
 
+    public Candy() {
+    }
+
+    public Candy(String name) {
+        super(name);
+    }
+
+    public Candy(double weight, double pricePerPound) {
+        this.weight = weight;
+        this.pricePerPound = pricePerPound;
+    }
+
     public Candy(String name, double weight, double pricePerPound) {
         super(name);
         this.weight = weight;
@@ -21,7 +33,7 @@ public class Candy extends DessertItem{
         sb.append(" lbs. @ ");
         sb.append(DessertShoppe.cents2dollarsAndCents((int) pricePerPound));
         sb.append(" /lb.\n");
-        sb.append(String.format("%-25.25s %5.2f", name, DessertShoppe.cents2dollarsAndCents(getCost())));
+        sb.append(String.format("%-25.25s %6s", name, DessertShoppe.cents2dollarsAndCents(getCost())));
         return sb.toString();
     }
 }

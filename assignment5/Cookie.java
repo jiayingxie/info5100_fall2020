@@ -3,6 +3,18 @@ public class Cookie extends DessertItem{
     private int number;
     private double pricePerDozen;
 
+    public Cookie() {
+    }
+
+    public Cookie(String name) {
+        super(name);
+    }
+
+    public Cookie(int number, double pricePerDozen) {
+        this.number = number;
+        this.pricePerDozen = pricePerDozen;
+    }
+
     public Cookie(String name, int number, double pricePerDozen) {
         super(name);
         this.number = number;
@@ -21,7 +33,7 @@ public class Cookie extends DessertItem{
         sb.append(" @ ");
         sb.append(DessertShoppe.cents2dollarsAndCents((int) pricePerDozen));
         sb.append(" /dz.\n");
-        sb.append(String.format("%-25.25s %5.2f", name, DessertShoppe.cents2dollarsAndCents(getCost())));
+        sb.append(String.format("%-25.25s %6s", name, DessertShoppe.cents2dollarsAndCents(getCost())));
         return sb.toString();
     }
 }

@@ -65,11 +65,11 @@ public class Checkout {
         }
         sb.append("\n");
         // tax
-        double tax = DessertShoppe.cents2dollarsAndCents(totalTax());
-        sb.append(String.format("%-25s %5.2f\n", "Tax", tax));
+        String tax = DessertShoppe.cents2dollarsAndCents(totalTax());
+        sb.append(String.format("%-25s %6s\n", "Tax", tax));
         // tax + cost
-        double totalCost = DessertShoppe.cents2dollarsAndCents(totalTax() + totalCost());
-        sb.append(String.format("%-25s %5.2f\n", "Total", totalCost));
+        String totalCost = DessertShoppe.cents2dollarsAndCents(totalTax() + totalCost());
+        sb.append(String.format("%-25s %6s\n", "Total", totalCost));
         return sb.toString();
     }
 }
