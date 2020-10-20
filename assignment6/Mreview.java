@@ -43,7 +43,8 @@ public class Mreview implements Comparable<Mreview>{
     // Returns the average of the ratings stored in the rating list.
     public double aveRating() {
         // ??? use average() in stream to get the result?
-        // ??? if there is no rating, what should be the result?
+        // if there is no rating, we just return 0
+        if (this.ratings.size() == 0) return 0;
         int sum = this.ratings.stream().mapToInt(Integer::intValue).sum();
         return sum * 1.0 / this.ratings.size();
     }
@@ -104,9 +105,9 @@ public class Mreview implements Comparable<Mreview>{
 /*
 * unit test output
 Movie: test, average 2.0 out of 3 ratings, and its average rating is 2.0
-Movie: apple, average NaN out of 0 ratings, and its average rating is NaN
+Movie: apple, average 0.0 out of 0 ratings, and its average rating is 0.0
 Movie: Test, average 4.0 out of 3 ratings, and its average rating is 4.0
-Movie: , average NaN out of 0 ratings, and its average rating is NaN
+Movie: , average 0.0 out of 0 ratings, and its average rating is 0.0
 * */
     }
 }
