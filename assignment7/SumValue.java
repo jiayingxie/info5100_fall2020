@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+
 
 public class SumValue {
 /*
@@ -26,12 +24,15 @@ public class SumValue {
         }
     }
 
-
     /*get sum of an array using 4 threads*/
     static long sum(int[] arr){
         List<countSubSumThread> list = new ArrayList<>();
+
+        // the number each thread need to count
+        int interval = arr.length / 4;
+
         for (int i = 0; i < 4; ++i) {
-            countSubSumThread thread = new countSubSumThread(i * 250, (i + 1) * 250, arr);
+            countSubSumThread thread = new countSubSumThread(i * interval, (i + 1) * interval, arr);
             list.add(thread);
             thread.start();
         }
@@ -63,17 +64,17 @@ public class SumValue {
     }
     /*
     * console output
-Thread-0 finished its task, the sum is -102150165
-Thread-3 finished its task, the sum is 1797121726
-Thread-1 finished its task, the sum is -1238917027
-Thread-2 finished its task, the sum is -1287637343
-Sum: -831582809
+Thread-1 finished its task, the sum is -1044374966678
+Thread-0 finished its task, the sum is -436371076196
+Thread-2 finished its task, the sum is -1103786269264
+Thread-3 finished its task, the sum is 407453131905
+Sum: -2177079180233
     * */
 }
 class countSubSumThread extends Thread{
     private int startIndex;
     private int endIndex;
-    private int sum = 0;
+    private long sum = 0;
     private int[] arr;
 
     public countSubSumThread(int startIndex, int endIndex, int[] arr) {
@@ -82,7 +83,7 @@ class countSubSumThread extends Thread{
         this.arr = arr;
     }
 
-    public int getSum() {
+    public long getSum() {
         return sum;
     }
 
