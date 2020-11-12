@@ -1,5 +1,8 @@
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalDouble;
 
 public class Mreview implements Comparable<Mreview>{
     // instance variables
@@ -42,11 +45,16 @@ public class Mreview implements Comparable<Mreview>{
 
     // Returns the average of the ratings stored in the rating list.
     public double aveRating() {
-        // ??? use average() in stream to get the result?
         // if there is no rating, we just return 0
         if (this.ratings.size() == 0) return 0;
         int sum = this.ratings.stream().mapToInt(Integer::intValue).sum();
         return sum * 1.0 / this.ratings.size();
+
+//        // use average() in stream to get the result,
+//        // pay attention!!! since the return is OptionalDouble,
+//        // we need to define an OptionalDouble object.
+//        OptionalDouble ave = this.ratings.stream().mapToDouble(Integer::doubleValue).average();
+//        return ave.getAsDouble();
     }
 
     // Returns the size (not capacity) of the rating list.
