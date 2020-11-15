@@ -15,7 +15,8 @@ public class ReverseHello implements Runnable{
         // interesting, when index is 50, while (index <= 50) is true,
         // it could still run the while loop. then index += 1, so now
         // index is 51, the name of thread is 51. However, in console
-        // output, the max thread number is 50. ??? ask TAs
+        // output, the max thread number is 50. hahaha, I am so silly, 
+		// my index starts from 1 rather than 0. Therefore, it is index <= 50
         while (index <= 50) {
             index += 1;
             Thread t = new Thread(new ReverseHello(), index + "");
@@ -24,8 +25,7 @@ public class ReverseHello implements Runnable{
             // so move the location.
             // System.out.println("Hello from Thread " + index +  "!");
 
-            // attention, t.start() should before t.join(), if I swap
-            // the sequence, I will get random order. But, why ??? ask TAs.
+            // attention!!!, t.start() should before t.join().
             t.start();
             try {
                 t.join();
